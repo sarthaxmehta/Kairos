@@ -1,0 +1,26 @@
+{
+  "name": "kairos-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kairos - AI-Powered Customer Flow & Operations Platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "db:migrate": "npm run migrate --workspace=packages/db",
+    "db:generate": "npm run generate --workspace=packages/db",
+    "db:studio": "npm run studio --workspace=packages/db",
+    "clean": "rm -rf node_modules apps/*/.next apps/*/node_modules packages/*/dist packages/*/node_modules"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}

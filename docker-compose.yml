@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database Service with Row-Level Security Support
+  postgres:
+    image: postgres:16-alpine
+    container_name: kairos_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: kairos_user
+      POSTGRES_PASSWORD: kairos_secure_pass
+      POSTGRES_DB: kairos_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kairos_user -d kairos_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Redis Service for Queue Locks, Cache & WebSockets Pub/Sub Engine
+  redis:
+    image: redis:7-alpine
+    container_name: kairos_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Database Web Admin Console (Adminer)
+  adminer:
+    image: adminer:latest
+    container_name: kairos_adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
+  redis_data:

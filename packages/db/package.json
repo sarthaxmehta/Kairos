@@ -1,0 +1,12 @@
+{
+  "name": "@kairos/db",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "generate": "echo 'Generating DB Client...'",
+    "migrate": "echo 'Running DB Migrations...'",
+    "studio": "echo 'Launching DB Studio...'"
+  }
+}
