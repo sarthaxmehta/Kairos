@@ -1,6 +1,6 @@
 # Kairos — AI-Powered Customer Flow & Operations Platform
 
-> **Vision**: Transform appointment and queue management into an intelligent, end-to-end Customer Flow Operating System for healthcare, government, finance, retail, education, and enterprise organizations.
+> **Vision**: Transform appointment and queue management into an intelligent, end-to-end Customer Flow Operating System for healthcare, government, finance, retail, education, and enterprise organizations. This project is still under development.
 
 ---
 
